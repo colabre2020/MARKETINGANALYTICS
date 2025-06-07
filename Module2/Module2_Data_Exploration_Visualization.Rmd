@@ -1,0 +1,65 @@
+---
+title: "Module 2: Data Exploration and Visualization"
+author: "SPanda"
+date: "2025-06-06"
+output: html_document
+---
+
+# Data Cleaning and Preprocessing
+
+- Handling missing values
+- Data types and conversions
+- Outlier detection
+
+# Exploratory Data Analysis (EDA)
+
+- Summary statistics
+- Correlation analysis
+
+# Visualization Techniques
+
+- Bar charts, histograms, scatter plots
+- Using ggplot2 (R) and matplotlib/seaborn (Python)
+
+## Practice Exercise
+
+1. Load a sample marketing dataset and perform EDA.
+2. Visualize the distribution of a key variable.
+
+## Practice with Imaginary Data
+
+```{r}
+# Create an imaginary marketing dataset for robust learning
+set.seed(123)
+marketing_data <- data.frame(
+  ID = 1:20,
+  Age = sample(22:60, 20, replace = TRUE),
+  Gender = sample(c('Male', 'Female'), 20, replace = TRUE),
+  Income = sample(seq(30000, 120000, by=5000), 20, replace = TRUE),
+  Campaign_Contacted = sample(0:1, 20, replace = TRUE, prob = c(0.3, 0.7)),
+  Response = sample(0:1, 20, replace = TRUE, prob = c(0.7, 0.3)),
+  Purchases = sample(1:10, 20, replace = TRUE)
+)
+head(marketing_data)
+
+# Total number of customers
+num_customers <- length(unique(marketing_data$ID))
+cat('Total customers:', num_customers, '\n')
+
+# Average sales per customer
+avg_sales <- mean(marketing_data$Income)
+cat('Average sales (Income):', round(avg_sales,2), '\n')
+
+# Campaign response rate
+response_rate <- mean(marketing_data$Response) * 100
+cat('Campaign response rate:', round(response_rate,2), '%\n')
+
+# Average purchases per customer
+avg_purchases <- mean(marketing_data$Purchases)
+cat('Average purchases per customer:', round(avg_purchases,2), '\n')
+```
+
+### Try it Yourself
+- Calculate the percentage of customers contacted by the campaign.
+- Find the average income by gender.
+- Visualize the distribution of purchases using a histogram.

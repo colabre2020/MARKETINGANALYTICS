@@ -1,0 +1,11 @@
+CustomerID,Age,Gender,Income,Campaign_Contacted,Response,Purchases,Review
+1,34,Female,54000,1,1,5,"Great service, will buy again!"
+2,45,Male,72000,1,0,3,"Product quality was average."
+3,29,Female,38000,0,0,2,"Loved the fast delivery."
+4,51,Male,95000,1,1,7,"Customer support was very helpful."
+5,40,Female,61000,0,0,4,"Not satisfied with the packaging."
+6,36,Male,80000,1,1,6,"Excellent value for money."
+7,27,Female,42000,1,0,2,"The product did not meet expectations."
+8,53,Male,110000,0,1,8,"Very happy with my purchase!"
+9,31,Female,47000,1,0,3,"Could be better."
+10,48,Male,90000,1,1,5,"Quick response from support."

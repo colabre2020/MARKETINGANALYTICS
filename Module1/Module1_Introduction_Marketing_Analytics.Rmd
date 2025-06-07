@@ -1,0 +1,50 @@
+---
+title: "Module 1: Introduction to Marketing Analytics"
+author: "SPanda"
+date: "2025-06-07"
+output: html_document
+---
+
+# Overview of Marketing Analytics
+
+- What is marketing analytics?
+- Importance in modern marketing
+- Types of marketing data
+- Key metrics and KPIs
+
+## Practice Exercise
+
+1. List 5 key marketing metrics relevant to your business domain.
+2. Discuss how data-driven decisions can improve marketing ROI.
+
+## Example Dataset
+
+We'll use the sample CSV file (`marketing_sample.csv`) containing customer demographics, campaign responses, purchases, and review text. This file is available in your workspace.
+
+```{r}
+library(readr)
+# Load the data
+df <- read_csv('../marketing_sample.csv')
+head(df)
+```
+
+## Example: Exploring Key Metrics
+
+```{r}
+# Total number of customers
+num_customers <- length(unique(df$CustomerID))
+cat('Total customers:', num_customers, '\n')
+
+# Average sales per customer
+avg_sales <- mean(df$Income)
+cat('Average sales (Income):', round(avg_sales,2), '\n')
+
+# Campaign response rate
+response_rate <- mean(df$Response) * 100
+cat('Campaign response rate:', round(response_rate,2), '%\n')
+```
+
+## Your Turn
+- Try calculating other metrics such as customer retention rate, average purchase frequency, or customer lifetime value using the dataset.
+- Reflect on how these metrics can inform marketing strategy.
+

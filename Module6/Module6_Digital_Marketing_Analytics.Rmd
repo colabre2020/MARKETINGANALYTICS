@@ -1,0 +1,25 @@
+---
+title: "Module 6: Digital Marketing Analytics"
+author: "spanda"
+date: "2025-06-06"
+output: html_document
+---
+
+# Web Analytics
+
+- Google Analytics basics
+- UTM parameters
+
+# Social Media Analytics
+
+- Metrics and tools
+
+# A/B Testing and Experimentation
+
+- Designing experiments
+- Analyzing results
+
+## Practice Exercise
+
+1. Analyze a sample web analytics report.
+2. Design an A/B test for a marketing campaign.

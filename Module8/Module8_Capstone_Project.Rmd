@@ -1,0 +1,72 @@
+---
+title: "Module 8: Capstone Project"
+author: "spanda"
+date: "2025-06-07"
+output: html_document
+---
+
+# Capstone Project: End-to-End Marketing Analytics
+
+We'll use the `marketing_sample.csv` file for this project. Make sure this file is in your working directory.
+
+## Step 1: Define a Business Problem
+
+Suppose a retail company wants to improve its marketing campaign effectiveness. The business problem: "How can we identify which customers are most likely to respond to a new marketing campaign?"
+
+## Step 2: Load and Explore Data
+
+```{r}
+library(readr)
+library(dplyr)
+
+# Load the data
+df <- read_csv('../marketing_sample.csv')
+head(df)
+```
+
+## Step 3: Data Cleaning & EDA
+
+```{r}
+# Check for missing values
+colSums(is.na(df))
+
+# Summary statistics
+df %>% summarise(across(where(is.numeric), list(mean = mean, sd = sd)))
+
+# Visualize distribution of Income
+library(ggplot2)
+ggplot(df, aes(x=Income)) + geom_histogram(binwidth=10000, fill='skyblue', color='black') + ggtitle('Income Distribution')
+```
+
+## Step 4: Segmentation Example (RFM)
+
+```{r}
+# Simple segmentation: High vs. Low Purchases
+purchase_threshold <- median(df$Purchases)
+df$Segment <- ifelse(df$Purchases > purchase_threshold, 'High Value', 'Low Value')
+table(df$Segment)
+```
+
+## Step 5: Predictive Modeling
+
+```{r}
+library(caret)
+set.seed(42)
+df$Response <- as.factor(df$Response)
+trainIndex <- createDataPartition(df$Response, p = .8, list = FALSE)
+train <- df[trainIndex,]
+test <- df[-trainIndex,]
+
+model <- train(Response ~ Age + Income + Purchases + Campaign_Contacted, data = train, method = 'glm', family = 'binomial')
+pred <- predict(model, test)
+confusionMatrix(pred, test$Response)
+```
+
+## Step 6: Present Insights
+- Summarize key findings from your analysis and model
+- Make recommendations for the marketing team
+
+# Your Turn
+- Try different segmentation strategies (e.g., by age or income)
+- Tune the model or try other algorithms
+- Create visualizations to support your recommendations

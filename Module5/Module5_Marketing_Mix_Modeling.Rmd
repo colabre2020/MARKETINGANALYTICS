@@ -1,0 +1,23 @@
+---
+title: "Module 5: Marketing Mix Modeling"
+author: "SPANDA"
+date: "2025-06-06"
+output: html_document
+---
+
+# Introduction to Marketing Mix Modeling (MMM)
+
+- What is MMM?
+- Key variables in MMM
+
+# Building and Interpreting Models
+
+- Model specification
+- Interpreting coefficients
+
+# Attribution and ROI Analysis
+
+## Practice Exercise
+
+1. Build a simple MMM using sales and marketing spend data.
+2. Analyze the ROI of different marketing channels.

@@ -1,0 +1,23 @@
+---
+title: "Module 4: Predictive Analytics in Marketing"
+author: "SPANDA"
+date: "2025-06-06"
+output: html_document
+---
+
+# Regression Analysis
+
+- Linear regression
+- Multiple regression
+
+# Classification Techniques
+
+- Logistic regression
+- Decision trees
+
+# Campaign Response Modeling
+
+## Practice Exercise
+
+1. Build a logistic regression model to predict campaign response.
+2. Evaluate model performance using accuracy and ROC curve.

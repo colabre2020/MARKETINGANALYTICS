@@ -1,0 +1,52 @@
+---
+title: "Module 3: Customer Segmentation"
+author: "SPANDA"
+date: "2025-06-06"
+output: html_document
+---
+
+# Clustering Techniques
+
+- K-means clustering
+- Hierarchical clustering
+
+# RFM Analysis
+
+- Recency, Frequency, Monetary value
+
+# Case Study: Segmenting Retail Customers
+
+## Practice Exercise
+
+1. Apply K-means clustering to a customer dataset.
+2. Perform RFM analysis and interpret the segments.
+
+## Practice with Imaginary Data
+
+```{r}
+# Create an imaginary customer dataset
+set.seed(123)
+customer_data <- data.frame(
+  CustomerID = 1:30,
+  Recency = sample(1:100, 30, replace = TRUE),
+  Frequency = sample(1:20, 30, replace = TRUE),
+  Monetary = sample(seq(100, 2000, by=50), 30, replace = TRUE)
+)
+head(customer_data)
+```
+
+### Example: K-means Clustering
+
+```{r}
+# Scale the data for clustering
+customer_scaled <- scale(customer_data[,c('Recency','Frequency','Monetary')])
+set.seed(123)
+km <- kmeans(customer_scaled, centers=3)
+customer_data$Segment <- as.factor(km$cluster)
+table(customer_data$Segment)
+```
+
+### Try it Yourself
+- Visualize the clusters using a scatter plot.
+- Calculate average RFM values for each segment.
+- Interpret the business meaning of each segment.

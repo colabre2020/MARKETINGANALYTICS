@@ -1,0 +1,80 @@
+---
+title: "Module 7: Advanced Topics"
+author: "spanda"
+date: "2025-06-07"
+output: html_document
+---
+
+# Time Series Forecasting for Sales
+
+We'll use the `marketing_sample.csv` file for all examples. Make sure this file is in your working directory.
+
+```{r}
+library(readr)
+library(ggplot2)
+library(forecast)
+library(dplyr)
+
+# Load the data
+df <- read_csv('../marketing_sample.csv')
+head(df)
+```
+
+## Time Series Forecasting Example
+
+```{r}
+# Simulate monthly sales
+dates <- seq(as.Date('2024-01-01'), by = 'month', length.out = 10)
+sales <- df$Purchases + sample(-1:1, 10, replace = TRUE)
+time_series <- ts(sales, start = c(2024, 1), frequency = 12)
+
+# Plot sales
+autoplot(time_series) + ggtitle('Monthly Sales') + ylab('Purchases')
+
+# Exponential Smoothing Forecast
+fit <- ets(time_series)
+forecasted <- forecast(fit, h=3)
+autoplot(forecasted) + ggtitle('Sales Forecast')
+```
+
+# Text Analytics for Customer Feedback
+
+## Sentiment Analysis Example
+
+```{r}
+library(textdata)
+library(tidytext)
+library(tibble)
+library(stringr)
+
+# Simple sentiment using Bing lexicon
+df_reviews <- tibble(text = df$Review)
+words <- df_reviews %>% unnest_tokens(word, text)
+sentiments <- get_sentiments('bing')
+words_sentiment <- words %>% inner_join(sentiments, by = 'word')
+words_sentiment %>% count(sentiment)
+```
+
+# Machine Learning Applications in Marketing
+
+## Churn Prediction Example
+
+```{r}
+library(caret)
+set.seed(42)
+
+# Features and target
+df$Response <- as.factor(df$Response)
+trainIndex <- createDataPartition(df$Response, p = .7, list = FALSE)
+train <- df[trainIndex,]
+test <- df[-trainIndex,]
+
+model <- train(Response ~ Age + Income + Purchases + Campaign_Contacted, data = train, method = 'rf')
+pred <- predict(model, test)
+confusionMatrix(pred, test$Response)
+```
+
+# Your Turn
+- Try forecasting with ARIMA or other time series models.
+- Perform topic modeling on the review text.
+- Build a recommendation system using the purchases data.
