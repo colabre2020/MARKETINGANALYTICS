@@ -1,6 +1,6 @@
 # Marketing Analytics Practice Course
 
-This repository contains a comprehensive, module-wise marketing analytics practice course designed for degree-level students and professionals. The course covers foundational to advanced topics, with hands-on exercises using real-world and simulated datasets.
+This repository contains a comprehensive, module-wise marketing analytics practice course designed for MS degree-level students and professionals. The course covers foundational to advanced topics, with hands-on exercises using real-world and simulated datasets.
 
 ## Course Structure
 
